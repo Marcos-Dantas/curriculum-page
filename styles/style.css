@@ -69,7 +69,11 @@ h2 {
     height: 350px; 
     width: 35%; 
     text-align: justify;
-    
+}
+.container-wide {
+    width: 61%;
+    height: 350px;
+    text-align: justify;
 }
 .paragraph {
     margin-top: 20px;
@@ -92,7 +96,29 @@ h2 {
 .border-orange:hover {
     background-color: var(--orange);
 }
-
+.image-perfil {
+    border-radius: 30px;
+    background: var(--orange);
+    border: 2px solid var(--orange);
+}
+.certificate-link {
+    margin-top: 10px; 
+    width: 78%;
+}
+.skills-tools {
+    height: 350px; 
+}
+.projects-list {
+    display: flex;
+    gap: 5%;
+    align-items: center; 
+    margin-top: 20px;
+}
+.card-project {
+    border-radius: 5px;
+    background: var(--orange);
+    border: 2px solid var(--orange);
+}
 .line {
     position: relative;
     width: 0px;
@@ -102,6 +128,49 @@ h2 {
     overflow: hidden;
 
 }
+.btnMenu_open {
+    position: fixed;
+    left: 20px;
+    top: 23px;
+    width: 93%;
+    z-index: 1000;
+}
+#menu-button-div {
+    display: none;
+}
+.menu-item-action{
+    text-transform: uppercase;
+    font-size: 12px;
+    background: #141313;
+    color: var(--white);
+    padding: 10px 10px;
+    border-bottom: 2px solid var(--orange);
+}
+.menu-item-action:hover {
+    background: var(--orange);
+}
+#menu-mobile {
+    position: fixed;
+    top: 56px;
+    left: 20px;
+    width: 93%;
+    z-index: 1000;
+    display: none;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+#menu-mobile.show {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+  
+#menu-mobile.hide {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+  
 /*Animação*/
 .anim-typewriter {
     animation: typewriter 4s steps(9) 500ms infinite,
@@ -182,4 +251,73 @@ h2 {
     to {
           border-right-color: transparent;
     }
+}
+
+
+@media only screen and (max-width: 780px) {
+    #home {
+        display: flex;
+        flex-direction: column;
+    }
+    #home .container {
+        order: 2;
+        width: 77%;
+        margin-top: 40px;
+    }
+    #skills {
+        flex-direction: column;
+    }
+    #skills .container {
+        width: 77%;
+        height: 250px;
+    }
+   
+    #projects .container-wide {
+        width: 77%;
+        height: 600px;
+    }
+    .projects-list {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+    .certificate-link {
+        margin-top: 10px; 
+        width: 100%;
+    }
+    body { 
+        background-repeat: repeat;
+    }
+    .image-perfil {
+        width: 300px;
+    }
+    .skills-tools {
+        height: 350px; 
+    }
+    .paragraph {
+        padding-right: 0;
+    }
+    main {
+        margin-top: 50px;
+    }
+    .social-medias {
+        padding-right: 0;
+    }
+    .copyright {
+        padding-bottom: 18px;
+    }
+    footer {
+        font-size: 14px;
+    }
+    header {
+        width: 100%;
+    }
+    #menu-button-div {
+        display: flex;
+    }
+    #menu-desktop {
+        display: none;
+    }
+
+
 }

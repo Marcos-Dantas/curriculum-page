@@ -7,25 +7,46 @@
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="shortcut icon" href="https://img.icons8.com/ios-filled/50/FD7E14/m-key.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <header>
         <nav>
-            <ul>
+            <div class="btnMenu btnMenu_open" id="menu-button-div">
+                <a onclick="openCloseMenuMobile()">
+                    <img id="menu-button" src="./icons/menu2.svg" width="30" alt="">
+                </a>
+            </div>
+            <ul id="menu-desktop">
                 <li class="row">
                     <img src="./icons/home.svg" width="18" alt="Home Icon" class="icon">
-                    <a id="home-nav" onclick="returnDashboard('home')">Home</a>
+                    <a id="home-nav" onclick="returnDashboard('home', false)">Home</a>
                 </li>
                 <li class="row">
                     <img src="./icons/skills.svg" width="18" alt="Home Icon" class="icon">
-                    <a id="skills-nav" onclick="returnDashboard('skills')">Habilidades</a>
+                    <a id="skills-nav" onclick="returnDashboard('skills', false)">Habilidades</a>
                 </li>
                 <li class="row">
                     <img src="./icons/projects.svg" width="18" alt="Home Icon" class="icon">
-                    <a id="projects-nav" onclick="returnDashboard('projects')">Projetos</a>
+                    <a id="projects-nav" onclick="returnDashboard('projects', false)">Projetos</a>
+                </li>
+            </ul>
+            <ul id="menu-mobile">
+                <li class="menu-item-action">
+                    <img src="./icons/home.svg" width="18" alt="Home Icon" class="icon">
+                    <a id="home-nav" onclick="returnDashboard('home', true)">Home</a>
+                </li>
+                <li class="menu-item-action">
+                    <img src="./icons/skills.svg" width="18" alt="Home Icon" class="icon">
+                    <a id="skills-nav" onclick="returnDashboard('skills', true)">Habilidades</a>
+                </li>
+                <li class="menu-item-action">
+                    <img src="./icons/projects.svg" width="18" alt="Home Icon" class="icon">
+                    <a id="projects-nav" onclick="returnDashboard('projects',true)">Projetos</a>
                 </li>
             </ul>
         </nav>
+
     </header>
 
     <main role="main">
@@ -55,12 +76,8 @@
                     </a>
                 </div>
             </div>
-            <div style="height: 350px; width: 23.4%;">
-                <div>
-                    <img src="./img/perfil.jpg" width="300px" style="border-radius: 30px;
-                    background: var(--orange);
-                    border: 2px solid var(--orange);" alt="">
-                </div>
+            <div >
+                <img src="./img/perfil.jpg" class="image-perfil" width="350px" alt="">
             </div>
         </section>
         <section id="skills" >
@@ -69,14 +86,14 @@
                 <p class="paragraph">Olá, aqui ao lado tem algumas tecnologias que eu tenho experiencia, algumas
                     de frontend, como: bootstrap, HTML5, CSS3 e Javascript; linguagens de programação como: python, c#, php e java e tecnologias de banco de dados.
                 </p>
-                <a href="https://github.com/Marcos-Dantas" target=”_blank” >
-                    <span class="row border-orange" style="margin-top: 10px; width: 78%;"> 
-                        <img src="./icons/github.svg" width="18" alt=""> Certificados
+                <a href="https://www.linkedin.com/in/marcos-vinicius-dos-santos-dantas-782943238/" target=”_blank” >
+                    <span class="row border-orange certificate-link"> 
+                        <img src="./icons/certificate.svg" width="18" alt=""> Certificados
                     </span>
                 </a>
             </div>
-            <div style="height: 350px; width: 15%;">
-                <div style="text-align: center;">
+            <div class="skills-tools" >
+                <div >
                    <img src="./img/python-logo-only.svg" width="50" alt="">
                    <img src="./img/c--4.svg" width="50" alt="">
                    <img src="./img/java-4.svg" width="50" alt="">
@@ -96,30 +113,22 @@
             </div>
         </section>
         <section id="projects" >
-            <div class="container" style="width: 60%;">
+            <div class="container-wide">
                 <h2 class="line anim-typewriter3">Meus <span id="title-second">Projetos</span></h2>
                 <p class="paragraph">Olá a todos! Gostaria de compartilhar um pouco sobre os projetos nos quais estou atualmente envolvido. Cada um deles reflete minha paixão por inovação, tecnologia e impacto positivo na sociedade.</p>
-                <div style="display: flex;
-                gap: 5%;
-                align-items: center; margin-top: 20px;">
+                <div class="projects-list">
                     <a href="https://blood-bank-two.vercel.app/" target=”_blank” >
-                        <div style="border-radius: 5px;
-                        background: var(--orange);
-                        border: 2px solid var(--orange);">
+                        <div class="card-project" >
                             <img src="./img/project1-image.png" width="250" alt="">
                         </div>
                     </a>
                     <a href="https://guess-number-game2.netlify.app" target=”_blank” >
-                        <div style="border-radius: 5px;
-                        background: var(--orange);
-                        border: 2px solid var(--orange);">
+                        <div class="card-project">
                             <img src="./img/project2-image.png" width="250" alt="">
                         </div>
                     </a>
                     <a href="https://github.com/Marcos-Dantas/web-scraping-python" target=”_blank” >
-                        <div style="border-radius: 5px;
-                        background: var(--orange);
-                        border: 2px solid var(--orange);">
+                        <div class="card-project">
                             <img src="./img/project3-image.png" width="250" height="115" alt="">
                         </div>
                     </a>
@@ -133,7 +142,7 @@
         <p class="copyright">&copy; 2024 Marcos Vinicius Dos Santos Dantas. Todos os direitos reservados.</p>
     </footer>
     <script>
-        function returnDashboard(section) {    
+        function returnDashboard(section, mobile) {    
             let navElActual = document.getElementById(section)        
             let navsEl = document.querySelectorAll('main section')
 
@@ -142,7 +151,33 @@
                 document.getElementById(element.id+'-nav').classList.remove('selected')
             });
             navElActual.style.display = 'flex'
-            document.getElementById(section+'-nav').classList.add('selected')
+            if(!mobile) {
+                document.getElementById(section+'-nav').classList.add('selected')
+            }
+        }
+        function openCloseMenuMobile() {
+            let button = document.getElementById('menu-button');
+            let menu = document.getElementById('menu-mobile');
+
+            if (menu.classList.contains('show')) {
+                menu.classList.remove('show');
+                menu.classList.add('hide');
+                button.src = './icons/menu2.svg';
+                document.querySelector('.btnMenu_open').style.background = '';
+
+                // Após a animação, definir display como none
+                setTimeout(() => {
+                menu.style.display = 'none';
+                }, 300); // 300ms deve coincidir com a duração da transição
+            } else {
+                menu.style.display = 'block'; // Mostra o menu antes de adicionar a classe para permitir a transição
+                setTimeout(() => {
+                    menu.classList.remove('hide');
+                    menu.classList.add('show');
+                }, 0);
+                button.src = './icons/menu-close.svg';
+                document.querySelector('.btnMenu_open').style.background = 'var(--primary-color)';
+            }
         }
        
     </script>
